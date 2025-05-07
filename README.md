@@ -16,6 +16,8 @@ To inline HTML without getting remote resources, using default options:
 ```js
 var juice = require('juice');
 var result = juice("<style>div{color:red;}</style><div/>");
+//或者
+import _juice from 'juice';
 ```
 
 result will be:
