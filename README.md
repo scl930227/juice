@@ -82,6 +82,7 @@ Returns string containing inlined HTML. Does not fetch remote resources.
  * `html` - html string, accepts complete documents as well as fragments
  * `options` - optional, see Options above
 
+
 #### juice.juiceResources(html, options, callback)
 
 Callback returns string containing inlined HTML. Fetches remote resources.
@@ -201,3 +202,133 @@ representation.
 - Uses [mensch](https://github.com/brettstimmerman/mensch) to parse out CSS and
 [Slick](https://github.com/subtleGradient/slick) to tokenize them.
 - Icon by [UnheardSounds](http://unheardsounds.deviantart.com/gallery/26536908#/d2ngozi)
+
+
+## 中文对照
+以下是 juice 库的配置选项（`Options`）的中文翻译及说明：
+
+---
+
+**选项（Options）**
+所有 `juice` 方法均接受以下可选配置对象，但不同方法可能仅使用部分属性：
+
+1. `applyAttributesTableElements`  
+   • 说明：是否在 `juice.tableElements` 指定的元素上为 `juice.styleToAttribute` 中的样式创建属性。  
+
+   • 默认值：`true`。
+
+
+2. `applyHeightAttributes`  
+   • 说明：是否将 CSS 像素高度转换为 `juice.heightElements` 中元素的 `height` 属性。  
+
+   • 默认值：`true`。
+
+
+3. `applyStyleTags`  
+   • 说明：是否将 `<style></style>` 标签中的样式内联到元素。  
+
+   • 默认值：`true`。
+
+
+4. `applyWidthAttributes`  
+   • 说明：是否将 CSS 像素宽度转换为 `juice.widthElements` 中元素的 `width` 属性。  
+
+   • 默认值：`true`。
+
+
+5. `decodeStyleAttributes`  
+   • 说明：是否解码 `style=` 属性的值（例如将 `&quot;` 转换为 `"`）。  
+
+   • 默认值：`false`。
+
+
+6. `extraCss`  
+   • 说明：附加的 CSS 样式，将应用到 HTML 中。  
+
+   • 默认值：空字符串 `""`。
+
+
+7. `insertPreservedExtraCss`  
+   • 说明：当启用 `preserveMediaQueries`、`preserveFontFaces` 或 `preserveKeyFrames` 时，是否将 `extraCss` 中保留的 `@media`、`@font-face` 等内容插入文档。若为 `true`，优先插入 `<head>`，其次 `<body>`，最后文档末尾；若为字符串，则视为 CSS/jQuery/cheerio 选择器，匹配后插入 `<style>` 标签。  
+
+   • 默认值：`true`。
+
+
+8. `inlinePseudoElements`  
+   • 说明：是否将伪元素（如 `::before` 和 `::after`）作为 `<span>` 插入 DOM。  
+
+   • 注意：此操作会修改 DOM，可能与页面其他 CSS 选择器（如 `:last-child`）冲突。  
+
+   • 默认值：`false`。
+
+
+9. `preserveFontFaces`  
+   • 说明：当 `removeStyleTags` 为 `true` 时，是否保留 `<style>` 标签内的 `@font-face` 规则。  
+
+   • 默认值：`true`。
+
+
+10. `preserveImportant`  
+    ◦ 说明：是否保留值中的 `!important` 声明。  
+
+    ◦ 默认值：`false`。
+
+
+11. `preserveMediaQueries`  
+    ◦ 说明：当 `removeStyleTags` 为 `true` 时，是否保留 `<style>` 标签内的媒体查询（`@media`）及其包含的样式。  
+
+    ◦ 默认值：`true`。
+
+
+12. `preserveKeyFrames`  
+    ◦ 说明：当 `removeStyleTags` 为 `true` 时，是否保留 `<style>` 标签内的关键帧动画（`@keyframes`）。  
+
+    ◦ 默认值：`true`。
+
+
+13. `preservePseudos`  
+    ◦ 说明：当 `removeStyleTags` 为 `true` 时，是否保留 `<style>` 标签内包含伪选择器（如 `:hover`）的规则。  
+
+    ◦ 默认值：`true`。
+
+
+14. `removeStyleTags`  
+    ◦ 说明：内联样式后是否移除原始 `<style></style>` 标签。  
+
+    ◦ 默认值：`true`。
+
+
+15. `resolveCSSVariables`  
+    ◦ 说明：是否解析 CSS 变量（如 `var(--color)`）。  
+
+    ◦ 默认值：`true`。
+
+
+16. `webResources`  
+    ◦ 说明：传递给 `web-resource-inliner` 的配置对象，用于处理远程资源（如 `juiceResources` 和 `juiceFile` 方法）。  
+
+    ◦ 默认值：`{}`。
+
+
+17. `xmlMode`  
+    ◦ 说明：是否输出所有标签闭合的 XML/XHTML。  
+
+    ◦ 注意：输入必须为有效的 XML/XHTML，否则可能出错。  
+
+    ◦ 默认值：`false`。
+
+
+---
+
+**方法（Methods）**
+• `juice(html [, options])`  
+
+  • 说明：返回内联样式后的 HTML 字符串，不处理远程资源。  
+
+  • 参数：  
+
+    ◦ `html`：HTML 字符串（支持完整文档或片段）。  
+
+    ◦ `options`：可选，参考上述配置选项。
+
+
